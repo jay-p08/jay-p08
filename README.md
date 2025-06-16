@@ -6,7 +6,7 @@
 <summary>
   Now Stady
 </summary>
-   ![js](https://img.shields.io/badge/C-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
+   ![cs](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 </details>
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=BDBDC8&height=180&section=footer&text=Jayoung%20Park&fontSize=60" />
