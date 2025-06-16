@@ -4,7 +4,7 @@
 
 <details>
 <summary>
-  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/master/Emojis/Hand%20gestures/Eyes.png" alt="Eyes" width="2%" /> Now Stady...
+  Now Stady...
 </summary>
   <br>
   ![cs](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
