@@ -8,6 +8,7 @@
 </summary>
    https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white
 </details>
-출처: https://hulrud.tistory.com/3 [주독야독:티스토리]
+
+![js](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=BDBDC8&height=150&section=footer" />
