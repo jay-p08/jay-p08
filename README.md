@@ -4,7 +4,7 @@
 
 <details>
 <summary>
-  배운 언어
+  Skills
 </summary>
   <br>
 
