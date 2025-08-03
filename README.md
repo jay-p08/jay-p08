@@ -76,7 +76,6 @@
     </td>
     <td align="center" width="50%" style="border: 1px solid #444; padding: 10px;">
       <img src="https://github-readme-stats.vercel.app/api/pin/?username=parkjay0709&repo=Coding_Test_Study"/>
-      <img src="https://github-readme-stats.vercel.app/api/pin/?username=parkjay0709&repo=PyMax"/>
     </td>
   </tr>
 </table>
