@@ -85,7 +85,7 @@
 
 ## 🔗 Profile
 <p align="center">
-  <a href="https://www.instagram.com/woo.jay._.p08/" target="_blank">
+  <a href="https://www.instagram.com/jay._.p08/" target="_blank">
     <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" height="50"/>
   </a>
 </p>
