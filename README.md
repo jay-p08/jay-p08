@@ -45,12 +45,12 @@
 <table align="center">
   <tr>
     <td align="center" width="50%" style="border: 1px solid #444; padding: 10px;">
-      <h3>GitHub</h3>
+      <h3>Stats</h3>
       <img src="https://github-readme-stats.vercel.app/api?username=parkjay0709&show_icons=true&bg_color=00000000&title_color=ffffff&text_color=ffffff" width="400px" />
     </td>
     <td align="center" width="50%" style="border: 1px solid #444; padding: 10px;">
       <h3>Streak</h3>
-      <img src="https://github.com/parkjay0709/github-readme-streak-stats"/>
+      <img src="https://streak-stats.demolab.com/?user=parkjay0709&https://git.io/streak-stats"/>
     </td>
   </tr>
   <tr>
