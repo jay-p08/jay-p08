@@ -50,7 +50,9 @@
     </td>
     <td align="center" width="50%" style="border: 1px solid #444; padding: 10px;">
       <h3>Streak</h3>
-      <img src="https://streak-stats.demolab.com/?user=parkjay0709&https://git.io/streak-stats"/>
+      <a href="https://git.io/streak-stats">
+        <img src="https://streak-stats.demolab.com?user=parkjay0709&theme=dark-smoky&short_numbers=true" alt="GitHub Streak" />
+      </a>
     </td>
   </tr>
   <tr>
@@ -71,6 +73,10 @@
       <a href="https://solved.ac/100_sulhwa">
         <img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=100_sulhwa" width="400px" />
       </a>
+    </td>
+    <td align="center" width="50%" style="border: 1px solid #444; padding: 10px;">
+      <img src="https://github-readme-stats.vercel.app/api/pin/?username=parkjay0709&repo=Coding_Test_Study"/>
+      <img src="https://github-readme-stats.vercel.app/api/pin/?username=parkjay0709&repo=PyMax"/>
     </td>
   </tr>
 </table>
