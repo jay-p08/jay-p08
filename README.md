@@ -75,8 +75,11 @@
       </a>
     </td>
     <td align="center" width="50%" style="border: 1px solid #444; padding: 10px;">
-      <img src="https://github-readme-stats.vercel.app/api/pin/?username=parkjay0709&repo=Coding_Test_Study"/>
-      <img src="https://github-readme-stats.vercel.app/api/pin/?username=parkjay0709&repo=PyMax"/>
+<!--       <p>
+        <a href="https://solved.ac/profile/100_sulhwa">
+          <img src="https://solvedac.junah.dev/v1/generate_badge?handle=100_sulhwa" alt="solved.ac">
+        </a>
+      </p> -->
     </td>
   </tr>
 </table>
