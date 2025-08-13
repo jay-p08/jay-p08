@@ -46,24 +46,24 @@
   <tr>
     <td align="center" width="50%" style="border: 1px solid #444; padding: 10px;">
       <h3>Stats</h3>
-      <img src="https://github-readme-stats.vercel.app/api?username=parkjay0709&show_icons=true&bg_color=00000000&title_color=ffffff&text_color=ffffff" width="400px" />
+      <img src="https://github-readme-stats.vercel.app/api?username=jay-p08&show_icons=true&bg_color=00000000&title_color=ffffff&text_color=ffffff" width="400px" />
     </td>
     <td align="center" width="50%" style="border: 1px solid #444; padding: 10px;">
       <h3>Streak</h3>
       <a href="https://git.io/streak-stats">
-        <img src="https://streak-stats.demolab.com?user=parkjay0709&theme=dark-smoky&short_numbers=true" alt="GitHub Streak" />
+        <img src="https://streak-stats.demolab.com?user=jay-p08&theme=dark-smoky&short_numbers=true" alt="GitHub Streak" />
       </a>
     </td>
   </tr>
   <tr>
     <td align="center" width="50%" style="border: 1px solid #444; padding: 10px;">
       <h3>Languages</h3>
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=parkjay0709&layout=compact&bg_color=00000000&title_color=ffffff&text_color=ffffff" width="400px" />
+      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jay-p08&layout=compact&bg_color=00000000&title_color=ffffff&text_color=ffffff" width="400px" />
     </td>
     <td align="center" width="50%" style="border: 1px solid #444; padding: 10px;">
       <h3>GitFarm</h3>
       <a href="https://www.gitanimals.org/en_US?utm_medium=image&utm_source=parkjay0709&utm_content=farm">
-        <img src="https://render.gitanimals.org/farms/parkjay0709" width="400px" height="200px"/>
+        <img src="https://render.gitanimals.org/farms/jay-p08" width="400px" height="200px"/>
       </a>
     </td>
   </tr>
