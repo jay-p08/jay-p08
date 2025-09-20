@@ -46,7 +46,7 @@
   <tr>
     <td align="center" width="50%" style="border: 1px solid #444; padding: 10px;">
       <h3>Stats</h3>
-      <img src="https://github-readme-stats.vercel.app/api?username=jay-p08&show_icons=true&bg_color=00000000&title_color=ffffff&text_color=ffffff" width="400px" />
+      <img src="https://github-readme-stats.vercel.app/api?username=jay-p08&show_icons=true&bg_color=00000000&title_color=ffffff&text_color=ffffff" width="400px" alt="Github Stats" />
     </td>
     <td align="center" width="50%" style="border: 1px solid #444; padding: 10px;">
       <h3>Streak</h3>
