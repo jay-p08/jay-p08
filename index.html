@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>JAYOUNG PARK // GAME DEVELOPER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --green: #00ff41;
+            --green-dim: #00cc35;
+            --green-dark: #009922;
+            --green-faint: #00ff4115;
+            --green-border: #00ff4133;
+            --bg: #000;
+            --bg2: #001a00;
+            --bg3: #000d00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--green);
+            font-family: 'Share Tech Mono', monospace;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* CURSOR */
+        #cursor {
+            position: fixed;
+            width: 16px;
+            height: 16px;
+            border: 1px solid var(--green);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width .15s, height .15s, background .15s;
+            box-shadow: 0 0 8px var(--green);
+        }
+
+        #cursor.click {
+            width: 28px;
+            height: 28px;
+            background: var(--green-faint);
+        }
+
+        /* MATRIX CANVAS */
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            opacity: .15;
+            pointer-events: none;
+        }
+
+        /* SCANLINES */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, .07) 2px, rgba(0, 0, 0, .07) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* LAYOUT */
+        .wrap {
+            position: relative;
+            z-index: 2;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 24px 60px;
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 70px 0 50px;
+            border-bottom: 1px solid var(--green-border);
+            position: relative;
+        }
+
+        .glitch {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2rem, 6vw, 3.8rem);
+            font-weight: 900;
+            letter-spacing: 6px;
+            color: var(--green);
+            text-shadow: 0 0 30px #00ff4155;
+            position: relative;
+            display: inline-block;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .glitch::before {
+            color: #ff003c;
+            animation: gb 3s infinite linear;
+            clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+        }
+
+        .glitch::after {
+            color: #0040ff;
+            animation: ga 3s infinite linear;
+            clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+        }
+
+        @keyframes gb {
+
+            0%,
+            90%,
+            100% {
+                transform: translate(0)
+            }
+
+            92% {
+                transform: translate(-3px, 1px)
+            }
+
+            96% {
+                transform: translate(3px, -1px)
+            }
+        }
+
+        @keyframes ga {
+
+            0%,
+            90%,
+            100% {
+                transform: translate(0)
+            }
+
+            93% {
+                transform: translate(3px, 1px)
+            }
+
+            97% {
+                transform: translate(-3px, -1px)
+            }
+        }
+
+        .subtitle {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--green-dark);
+            font-size: .9rem;
+            letter-spacing: 8px;
+            margin-top: 10px;
+        }
+
+        .status-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 18px;
+            font-size: .7rem;
+            color: var(--green-dark);
+            letter-spacing: 3px;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+            animation: blink 1.4s ease-in-out infinite;
+            box-shadow: 0 0 8px var(--green);
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .2
+            }
+        }
+
+        /* TYPING LINE */
+        .type-line {
+            font-size: .85rem;
+            color: var(--green-dim);
+            margin-top: 20px;
+            min-height: 24px;
+            letter-spacing: 1px;
+        }
+
+        .caret {
+            animation: blink .8s step-end infinite;
+        }
+
+        /* SECTIONS */
+        section {
+            margin: 40px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .6s, transform .6s;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .sec-title {
+            font-family: 'Orbitron', monospace;
+            font-size: .7rem;
+            letter-spacing: 5px;
+            color: var(--green);
+            border-left: 3px solid var(--green);
+            padding-left: 12px;
+            margin-bottom: 18px;
+            text-shadow: 0 0 12px #00ff4166;
+        }
+
+        /* BADGE */
+        .badge-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--bg2);
+            border: 1px solid var(--green-border);
+            border-radius: 3px;
+            padding: 6px 14px;
+            font-size: .75rem;
+            color: var(--green);
+            transition: all .2s;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge::before {
+            content: '';
+            position: absolute;
+            left: -100%;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, #00ff4110, transparent);
+            transition: left .4s;
+        }
+
+        .badge:hover::before {
+            left: 100%;
+        }
+
+        .badge:hover {
+            border-color: var(--green);
+            box-shadow: 0 0 14px #00ff4133;
+            background: #002800;
+        }
+
+        .badge.cpp {
+            color: #4fc3f7;
+            border-color: #4fc3f733;
+        }
+
+        .badge.cs {
+            color: #a78bfa;
+            border-color: #a78bfa33;
+        }
+
+        .badge.py {
+            color: #fbbf24;
+            border-color: #fbbf2433;
+        }
+
+        .badge.java {
+            color: #f97316;
+            border-color: #f9731633;
+        }
+
+        .badge.ue {
+            color: #d1d1d1;
+            border-color: #d1d1d133;
+        }
+
+        .badge.kali {
+            color: #7ab4cc;
+            border-color: #7ab4cc33;
+        }
+
+        .badge.riot {
+            color: #e84057;
+            border-color: #e8405733;
+        }
+
+        .badge.ps {
+            color: #4169e1;
+            border-color: #4169e133;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            opacity: .7;
+        }
+
+        /* HOBBY GRID */
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .hobby-card {
+            background: var(--bg3);
+            border: 1px solid var(--green-border);
+            border-radius: 5px;
+            padding: 14px;
+            transition: border-color .2s;
+        }
+
+        .hobby-card:hover {
+            border-color: var(--green-dark);
+        }
+
+        .hobby-card-label {
+            font-size: .6rem;
+            letter-spacing: 4px;
+            color: var(--green-dark);
+            margin-bottom: 10px;
+        }
+
+        /* STATS GRID */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .stat-card {
+            background: var(--bg3);
+            border: 1px solid var(--green-border);
+            border-radius: 5px;
+            padding: 16px;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .stat-card:hover {
+            border-color: var(--green-dark);
+            box-shadow: 0 0 20px #00ff4115;
+        }
+
+        .stat-card a {
+            display: block;
+            text-align: center;
+        }
+
+        .stat-card img {
+            width: 100%;
+            border-radius: 3px;
+            filter: brightness(1.05);
+        }
+
+        .stat-label {
+            font-size: .6rem;
+            letter-spacing: 4px;
+            color: var(--green-dark);
+            margin-bottom: 10px;
+        }
+
+        /* TERMINAL */
+        .terminal {
+            background: #000d00;
+            border: 1px solid var(--green-border);
+            border-radius: 5px;
+            padding: 20px;
+            font-size: .8rem;
+            line-height: 2;
+        }
+
+        .terminal-bar {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--green-border);
+        }
+
+        .terminal-btn {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .t-red {
+            background: #ff5f56;
+        }
+
+        .t-yel {
+            background: #ffbd2e;
+        }
+
+        .t-grn {
+            background: #27c93f;
+        }
+
+        .prompt {
+            color: var(--green);
+        }
+
+        .cmd {
+            color: var(--green-dim);
+        }
+
+        .out {
+            color: #005a15;
+            padding-left: 16px;
+        }
+
+        .out.hi {
+            color: #008a20;
+        }
+
+        /* PROFILE LINKS */
+        .link-wrap {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .profile-link {
+            background: var(--bg2);
+            border: 1px solid var(--green-border);
+            border-radius: 3px;
+            padding: 10px 28px;
+            color: var(--green);
+            font-size: .75rem;
+            letter-spacing: 3px;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .profile-link:hover {
+            background: #002800;
+            border-color: var(--green);
+            box-shadow: 0 0 20px #00ff4133;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 24px 0;
+            border-top: 1px solid var(--green-border);
+            font-size: .62rem;
+            color: #003a10;
+            letter-spacing: 4px;
+            margin-top: 20px;
+        }
+
+        /* DIVIDER */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--green-border), transparent);
+            margin: 10px 0;
+        }
+
+        @media(max-width:560px) {
+
+            .stats-grid,
+            .hobby-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .glitch {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="cursor"></div>
+    <canvas id="matrix"></canvas>
+
+    <div class="wrap">
+
+        <!-- HEADER -->
+        <header>
+            <div class="glitch" data-text="JAYOUNG PARK">JAYOUNG PARK</div>
+            <div class="subtitle">// &nbsp; GAME DEVELOPER &nbsp; //</div>
+            <div class="status-bar">
+                <span class="dot"></span>
+                <span>SYSTEM ONLINE</span>
+                <span style="opacity:.4">|</span>
+                <span id="clock"></span>
+            </div>
+            <div class="type-line" id="typer"></div>
+        </header>
+
+        <!-- STACK -->
+        <section id="s1">
+            <div class="sec-title">&gt; LANGUAGES.EXE</div>
+            <div class="badge-wrap">
+                <div class="badge cpp"><span class="badge-dot"></span>C++</div>
+                <div class="badge cs"><span class="badge-dot"></span>C#</div>
+                <div class="badge cpp"><span class="badge-dot"></span>C</div>
+                <div class="badge py"><span class="badge-dot"></span>Python</div>
+                <div class="badge java"><span class="badge-dot"></span>Java</div>
+            </div>
+        </section>
+
+        <section id="s2">
+            <div class="sec-title">&gt; ENGINE.INIT()</div>
+            <div class="badge-wrap">
+                <div class="badge ue"><span class="badge-dot"></span>Unreal Engine</div>
+                <div class="badge ue"><span class="badge-dot"></span>Unity</div>
+                <div class="badge" style="color:#5baee0;border-color:#5baee033;"><span class="badge-dot"></span>Godot
+                    Engine</div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- HOBBY -->
+        <section id="s3">
+            <div class="sec-title">&gt; HOBBY_PROCESSES[]</div>
+            <div class="hobby-grid">
+                <div class="hobby-card">
+                    <div class="hobby-card-label">HACKING</div>
+                    <div class="badge-wrap">
+                        <div class="badge kali" style="font-size:.7rem;padding:5px 10px;"><span
+                                class="badge-dot"></span>Kali Linux</div>
+                        <div class="badge kali" style="font-size:.7rem;padding:5px 10px;"><span
+                                class="badge-dot"></span>VMware</div>
+                    </div>
+                </div>
+                <div class="hobby-card">
+                    <div class="hobby-card-label">GAMING</div>
+                    <div class="badge-wrap">
+                        <div class="badge riot" style="font-size:.7rem;padding:5px 10px;"><span
+                                class="badge-dot"></span>Riot Games</div>
+                        <div class="badge ue" style="font-size:.7rem;padding:5px 10px;"><span
+                                class="badge-dot"></span>Steam</div>
+                        <div class="badge ps" style="font-size:.7rem;padding:5px 10px;"><span
+                                class="badge-dot"></span>PlayStation</div>
+                        <div class="badge ue" style="font-size:.7rem;padding:5px 10px;"><span
+                                class="badge-dot"></span>Epic Games</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- STATS -->
+        <section id="s4">
+            <div class="sec-title">&gt; STATS.QUERY()</div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">GITHUB STATS</div>
+                    <a href="https://github.com/jay-p08" target="_blank">
+                        <img src="https://github-readme-stats.vercel.app/api?username=jay-p08&show_icons=true&theme=chartreuse-dark&bg_color=000d00&title_color=00ff41&text_color=00cc35&icon_color=00ff41&border_color=003300&hide_border=false"
+                            alt="stats" />
+                    </a>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">COMMIT STREAK</div>
+                    <a href="https://github.com/jay-p08" target="_blank">
+                        <img src="https://streak-stats.demolab.com/?user=jay-p08&theme=matrix&background=000d00&ring=00ff41&fire=00ff41&currStreakLabel=00ff41&sideLabels=00cc35&dates=00aa30&border=003300"
+                            alt="streak" />
+                    </a>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">TOP LANGUAGES</div>
+                    <a href="https://github.com/jay-p08" target="_blank">
+                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jay-p08&layout=compact&theme=chartreuse-dark&bg_color=000d00&title_color=00ff41&text_color=00cc35&border_color=003300"
+                            alt="langs" />
+                    </a>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">BAEKJOON</div>
+                    <a href="https://solved.ac/100_sulhwa" target="_blank">
+                        <img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=100_sulhwa" alt="boj" />
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- TERMINAL -->
+        <section id="s5">
+            <div class="sec-title">&gt; TERMINAL</div>
+            <div class="terminal">
+                <div class="terminal-bar">
+                    <div class="terminal-btn t-red"></div>
+                    <div class="terminal-btn t-yel"></div>
+                    <div class="terminal-btn t-grn"></div>
+                    <span style="font-size:.65rem;color:#005515;margin-left:8px;letter-spacing:2px;">jay@gamedev ~
+                        bash</span>
+                </div>
+                <div><span class="prompt">$</span> <span class="cmd">whoami</span></div>
+                <div class="out hi">→ Jayoung Park | Game Developer</div>
+                <div style="margin-top:6px;"><span class="prompt">$</span> <span class="cmd">cat skills.txt</span></div>
+                <div class="out">→ C++ / C# / C / Python / Java</div>
+                <div class="out">→ Unreal Engine / Unity / Godot</div>
+                <div class="out">→ Kali Linux / VMware / Hacking</div>
+                <div style="margin-top:6px;"><span class="prompt">$</span> <span class="cmd">git log --oneline -3</span>
+                </div>
+                <div class="out hi">→ <span style="color:#00ff4166;">a1b2c3d</span> fix: enemy AI pathfinding</div>
+                <div class="out hi">→ <span style="color:#00ff4166;">e4f5g6h</span> feat: new shader pipeline</div>
+                <div class="out hi">→ <span style="color:#00ff4166;">i7j8k9l</span> init: project setup</div>
+                <div style="margin-top:6px;"><span class="prompt">$</span> <span id="term-caret" class="caret">▌</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFILE -->
+        <section id="s6">
+            <div class="sec-title">&gt; PROFILE.LINKS</div>
+            <div class="link-wrap">
+                <a class="profile-link" href="https://github.com/jay-p08" target="_blank">[ GITHUB ]</a>
+                <a class="profile-link" href="https://www.instagram.com/jay._.p08/" target="_blank">[ INSTAGRAM ]</a>
+            </div>
+        </section>
+
+        <footer>
+            &lt;/JAYOUNG_PARK&gt; &nbsp;|&nbsp; GAME.DEV &nbsp;|&nbsp; 2025
+        </footer>
+
+    </div>
+
+    <script>
+        /* CURSOR */
+        const cur = document.getElementById('cursor');
+        document.addEventListener('mousemove', e => { cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px'; });
+        document.addEventListener('mousedown', () => cur.classList.add('click'));
+        document.addEventListener('mouseup', () => cur.classList.remove('click'));
+
+        /* CLOCK */
+        function tick() {
+            const n = new Date();
+            document.getElementById('clock').textContent =
+                n.getHours().toString().padStart(2, '0') + ':' +
+                n.getMinutes().toString().padStart(2, '0') + ':' +
+                n.getSeconds().toString().padStart(2, '0');
+        }
+        tick(); setInterval(tick, 1000);
+
+        /* MATRIX RAIN */
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        resize(); window.addEventListener('resize', resize);
+        const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+        const cols = Math.floor(window.innerWidth / 18);
+        const drops = Array.from({ length: cols }, () => Math.floor(Math.random() * -80));
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0,0,0,0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < drops.length; i++) {
+                const r = Math.random();
+                ctx.fillStyle = r > .98 ? '#ffffff' : r > .9 ? '#88ffaa' : '#00ff41';
+                ctx.font = '14px Share Tech Mono,monospace';
+                ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * 18, drops[i] * 18);
+                if (drops[i] * 18 > canvas.height && Math.random() > .975) drops[i] = 0;
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 45);
+
+        /* TYPING ANIMATION */
+        const lines = [
+            'Initializing game engine...',
+            'C++ compiled successfully.',
+            'Loading shaders... done.',
+            'git push origin main',
+            'Enemy AI: pathfinding OK',
+            'printf("Hello, World!");',
+        ];
+        let li = 0, ci = 0, del = false;
+        const typer = document.getElementById('typer');
+        function type() {
+            const line = lines[li];
+            if (!del) {
+                ci++;
+                typer.textContent = line.slice(0, ci) + '█';
+                if (ci >= line.length) { del = true; setTimeout(type, 1800); return; }
+            } else {
+                ci--;
+                typer.textContent = line.slice(0, ci) + '█';
+                if (ci <= 0) { del = false; li = (li + 1) % lines.length; setTimeout(type, 400); return; }
+            }
+            setTimeout(type, del ? 40 : 80);
+        }
+        type();
+
+        /* SCROLL REVEAL */
+        const secs = document.querySelectorAll('section');
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: .1 });
+        secs.forEach(s => io.observe(s));
+    </script>
+</body>
+
+</html>
