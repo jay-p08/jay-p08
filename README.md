@@ -87,7 +87,7 @@
   </tr>
   <tr>
     <td align="center" width="50%">
-      <a href="https://solved.ac/100_sulhwa">
+      <a href="https://solved.ac/jay_p08">
         <img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=100_sulhwa" width="400px"/>
       </a>
     </td>
