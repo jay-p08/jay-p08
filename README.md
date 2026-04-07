@@ -1,16 +1,16 @@
 <!-- HEADER -->
 <div align="center">
 
-![header](https://capsule-render.vercel.app/api?type=waving&color=0:000000,50:003300,100:00ff41&height=200&text=JAYOUNG%20PARK&fontAlign=50&fontAlignY=35&fontSize=48&fontColor=00ff41&desc=/*%20GAME%20DEVELOPER%20*/&descAlignY=58&descAlign=50&animation=fadeIn)
+![header](https://capsule-render.vercel.app/api?type=waving&color=0:000000,50:003300,100:00ff41&height=220&text=JAYOUNG%20PARK&fontAlign=50&fontAlignY=35&fontSize=52&fontColor=00ff41&desc=/*%20GAME%20DEVELOPER%20*/%20%7C%20C%2B%2B%20%7C%20Unreal%20%7C%20Unity&descAlignY=58&descAlign=50&animation=fadeIn)
 
 </div>
 
-<!-- MATRIX RAIN GIF -->
+<!-- TYPING ANIMATION -->
 <div align="center">
 
-![Matrix Rain](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=14&duration=1&pause=10000&color=00FF41&background=00000000&center=true&vCenter=true&multiline=true&width=600&height=30&lines=01001010+01000001+01011001+01001111+01010101+01001110+01000111)
+![Binary](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=13&duration=1&pause=10000&color=00FF41&background=00000000&center=true&vCenter=true&multiline=false&width=600&height=20&lines=01001010+01000001+01011001+01001111+01010101+01001110+01000111)
 
-![Typing](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=18&duration=3000&pause=500&color=00FF41&background=00000000&center=true&vCenter=true&multiline=false&width=500&height=40&lines=Initializing+system...;Loading+game+engine...;C%2B%2B+compiled+successfully;git+push+origin+main;printf(%22Hello%2C+World%22))
+![Typing](https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=17&duration=2500&pause=600&color=00FF41&background=00000000&center=true&vCenter=true&multiline=false&width=560&height=40&lines=Initializing+game+engine...;Compiling+C%2B%2B+source...;Loading+shaders...;git+commit+-m+"feat%3A+another+banger";printf(%22Hello%2C+World!%5Cn%22);▌)
 
 </div>
 
@@ -18,7 +18,9 @@
 
 ## 🖥️ Stack
 
-> `> cat skills.txt`
+```bash
+> cat skills.txt
+```
 
 #### 🎯 Languages
 
@@ -38,17 +40,30 @@
   <img src="https://img.shields.io/badge/Godot-478CBF?style=for-the-badge&logo=godotengine&logoColor=white"/>
 </p>
 
+#### 🛠️ Tools & OS
+
+<p>
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white"/>
+  <img src="https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"/>
+</p>
+
 ---
 
 ## 🎰 Hobby
 
-> `> ls /hobbies`
+```bash
+> ls /hobbies/
+```
 
 #### 🧑‍💻 Hacking
 
 <p>
   <img src="https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kali-linux&logoColor=white"/>
   <img src="https://img.shields.io/badge/VMware-607078?style=for-the-badge&logo=vmware&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white"/>
 </p>
 
 #### 🎮 Gaming
@@ -64,43 +79,60 @@
 
 ## 📊 Status
 
-> `> git log --stat`
+```bash
+> git log --stat --author="jay-p08"
+```
 
-<table align="center">
-  <tr>
-    <td align="center" width="50%">
-      <img src="https://github-readme-stats.vercel.app/api?username=jay-p08&show_icons=true&theme=chartreuse-dark&bg_color=000000&title_color=00ff41&text_color=00cc35&icon_color=00ff41&border_color=003300" width="400px"/>
-    </td>
-    <td align="center" width="50%">
-      <img src="https://streak-stats.demolab.com/?user=jay-p08&theme=matrix&background=000000&ring=00ff41&fire=00ff41&currStreakLabel=00ff41&sideLabels=00cc35&dates=00aa30&border=003300" width="400px"/>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="50%">
-      <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jay-p08&layout=compact&theme=chartreuse-dark&bg_color=000000&title_color=00ff41&text_color=00cc35&border_color=003300" width="400px"/>
-    </td>
-    <td align="center" width="50%">
-      <a href="https://www.gitanimals.org/en_US?utm_medium=image&utm_source=jay-p08&utm_content=farm">
-        <img src="https://render.gitanimals.org/farms/jay-p08" width="400px" height="200px"/>
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td align="center" width="50%">
-      <a href="https://solved.ac/jay_p08">
-        <img src="jay_p08" width="400px"/>
-      </a>
-    </td>
-    <td align="center" width="50%">
-    </td>
-  </tr>
-</table>
+<div align="center">
+
+<!-- Row 1: GitHub Stats + Streak -->
+<img src="https://github-readme-stats.vercel.app/api?username=jay-p08&show_icons=true&theme=chartreuse-dark&bg_color=000000&title_color=00ff41&text_color=00cc35&icon_color=00ff41&border_color=003300&hide_border=false&rank_icon=github&include_all_commits=true" height="180"/>
+&nbsp;&nbsp;
+<img src="https://streak-stats.demolab.com/?user=jay-p08&theme=matrix&background=000000&ring=00ff41&fire=00ff41&currStreakLabel=00ff41&sideLabels=00cc35&dates=00aa30&border=003300" height="180"/>
+
+</div>
+
+<div align="center">
+
+<!-- Row 2: Top Langs + GitAnimals -->
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jay-p08&layout=compact&theme=chartreuse-dark&bg_color=000000&title_color=00ff41&text_color=00cc35&border_color=003300&langs_count=6" height="180"/>
+&nbsp;&nbsp;
+<a href="https://www.gitanimals.org/en_US?utm_medium=image&utm_source=jay-p08&utm_content=farm">
+  <img src="https://render.gitanimals.org/farms/jay-p08" height="180"/>
+</a>
+
+</div>
+
+<div align="center">
+
+<!-- Row 3: Solved.ac -->
+<a href="https://solved.ac/jay_p08">
+  <img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=jay_p08" height="150"/>
+</a>
+
+</div>
+
+---
+
+## 📈 Activity
+
+```bash
+> git log --oneline --graph
+```
+
+<div align="center">
+
+![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=jay-p08&bg_color=000000&color=00ff41&line=00cc35&point=00ff41&area=true&area_color=003300&border_color=003300&hide_border=false)
+
+</div>
 
 ---
 
 ## 🔗 Profile
 
-> `> whoami --links`
+```bash
+> whoami --links
+```
 
 <p align="center">
   <a href="https://www.instagram.com/jay._.0x50/" target="_blank">
@@ -109,6 +141,10 @@
   &nbsp;
   <a href="https://github.com/jay-p08" target="_blank">
     <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" height="40"/>
+  </a>
+  &nbsp;
+  <a href="https://solved.ac/jay_p08" target="_blank">
+    <img src="https://img.shields.io/badge/Solved.ac-000000?style=for-the-badge&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADFSURBVHgBjZLBDcIwDEVtxIAdsQEjsAEjsAEbdAS6ARt0AzZgAzZgA47NG5WqVCpO8l8S+9nOT0QkFEIIVVVdIuJFRAB4A+DVzFTOuQuA3t3fzrkdUBIR2XtfEw9CRGQDMLv7ZmaHiJQAThFxAHCJSA3gDODonLsCOAGYAbSI2IJqAHsHgK2ZHetNEbECcABwBnAFcAdQAbgCuAE4ANgA2ANYAVgDWAPYAFgDWANYA9gAWOv3H6CqqqpSSulm5p+qWr33HgCegc/2R+YfmAAAAABJRU5ErkJggg==&logoColor=white" height="40"/>
   </a>
 </p>
 
