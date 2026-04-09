@@ -97,9 +97,9 @@
 <!-- Row 2: Top Langs + Solved.ac -->
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jay-0x50&layout=compact&theme=chartreuse-dark&bg_color=000000&title_color=00ff41&text_color=00cc35&border_color=003300&langs_count=6" height="180"/>
 &nbsp;&nbsp;
-<img src="https://solved.ac/profile/jay_p08/banner.svg" height="180"/>
-
-</div>
+<a href="https://solved.ac/jay_p08">
+  <img src="https://mazassumnida.wtf/api/v2/generate_badge?boj=jay_p08" height="180"/>
+</a>
 
 </div>
 
