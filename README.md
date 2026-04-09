@@ -80,13 +80,13 @@
 ## 📊 Status
 
 ```bash
-> git log --stat --author="jay-p08"
+> git log --stat --author="jay-0x50"
 ```
 
 <div align="center">
 
 <!-- Row 1: GitHub Stats + Streak -->
-<img src="https://github-readme-stats.vercel.app/api?username=jay-p08&show_icons=true&theme=chartreuse-dark&bg_color=000000&title_color=00ff41&text_color=00cc35&icon_color=00ff41&border_color=003300&hide_border=false&rank_icon=github&include_all_commits=true" height="180"/>
+<img src="https://github-readme-stats.vercel.app/api?username=jay-0x50&show_icons=true&theme=chartreuse-dark&bg_color=000000&title_color=00ff41&text_color=00cc35&icon_color=00ff41&border_color=003300&hide_border=false&rank_icon=github&include_all_commits=true" height="180"/>
 &nbsp;&nbsp;
 <img src="https://streak-stats.demolab.com/?user=jay-0x50&theme=matrix&background=000000&ring=00ff41&fire=00ff41&currStreakLabel=00ff41&sideLabels=00cc35&dates=00aa30&border=003300" height="180"/>
 
@@ -94,21 +94,12 @@
 
 <div align="center">
 
-<!-- Row 2: Top Langs + GitAnimals -->
+<!-- Row 2: Top Langs + Solved.ac -->
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jay-0x50&layout=compact&theme=chartreuse-dark&bg_color=000000&title_color=00ff41&text_color=00cc35&border_color=003300&langs_count=6" height="180"/>
 &nbsp;&nbsp;
-<a href="https://www.gitanimals.org/en_US?utm_medium=image&utm_source=jay-0x50&utm_content=farm">
-  <img src="https://render.gitanimals.org/farms/jay-0x50" height="180"/>
-</a>
+<img src="https://solved.ac/profile/jay_p08/banner.svg" height="180"/>
 
 </div>
-
-<div align="center">
-
-<!-- Row 3: Solved.ac -->
-<a href="https://solved.ac/jay_p08">
-  <img src="http://mazassumnida.wtf/api/v2/generate_badge?boj=jay_p08" height="150"/>
-</a>
 
 </div>
 
