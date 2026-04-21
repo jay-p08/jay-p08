@@ -85,17 +85,15 @@
 
 <div align="center">
 
-<!-- Row 1: GitHub Stats + Streak -->
-<img src="https://github-readme-stats.vercel.app/api?username=jay-0x50&show_icons=true&theme=chartreuse-dark&bg_color=000000&title_color=00ff41&text_color=00cc35&icon_color=00ff41&border_color=003300&hide_border=false&rank_icon=github&include_all_commits=true" height="180"/>
+<img src="https://github-readme-stats.vercel.app/api?username=jay-0x50&show_icons=true&theme=tokyonight&bg_color=0d1117&title_color=00e5ff&text_color=00b8d4&icon_color=00e5ff&border_color=0a3d5c&hide_border=false&rank_icon=github&include_all_commits=true" height="180"/>
 &nbsp;&nbsp;
-<img src="https://streak-stats.demolab.com/?user=jay-0x50&theme=matrix&background=000000&ring=00ff41&fire=00ff41&currStreakLabel=00ff41&sideLabels=00cc35&dates=00aa30&border=003300" height="180"/>
+<img src="https://streak-stats.demolab.com/?user=jay-0x50&theme=tokyonight-duo&background=0d1117&ring=00e5ff&fire=38bdf8&currStreakLabel=00e5ff&sideLabels=00b8d4&dates=4a9aba&border=0a3d5c" height="180"/>
 
 </div>
 
 <div align="center">
 
-<!-- Row 2: Top Langs + Solved.ac -->
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jay-0x50&layout=compact&theme=chartreuse-dark&bg_color=000000&title_color=00ff41&text_color=00cc35&border_color=003300&langs_count=6" height="180"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=jay-0x50&layout=compact&theme=tokyonight&bg_color=0d1117&title_color=00e5ff&text_color=00b8d4&border_color=0a3d5c&langs_count=6" height="180"/>
 &nbsp;&nbsp;
 <a href="https://solved.ac/jay_p08">
   <img src="https://mazassumnida.wtf/api/v2/generate_badge?boj=jay_p08" height="180"/>
